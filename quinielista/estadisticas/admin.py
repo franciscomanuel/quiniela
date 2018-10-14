@@ -39,6 +39,11 @@ class EquipoAdmin(admin.ModelAdmin):
 	def get_queryset(self, request):
 		return super(EquipoAdmin, self).get_queryset(request).order_by('nombre')
 
+	def formfield_for_foreignkey(self, db_field, request, **kwargs):
+		if db_field.name == 'estadio':
+			kwargs['queryset'] = Estadio.objects.all().order_by('nombre')
+		return super(EquipoAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
 class EstadioAdmin(admin.ModelAdmin):
 	def get_queryset(self, request):
 		return super(EstadioAdmin, self).get_queryset(request).order_by('nombre')
@@ -46,6 +51,11 @@ class EstadioAdmin(admin.ModelAdmin):
 class EncuentroAdmin(admin.ModelAdmin):
 	list_display = ('jornada', 'equipo1', 'equipo2', 'golesLocal', 'golesVisitante', 'fecha', 'hora', 'liga')
 	list_filter = ['jornada', 'liga']
+
+	#def formfield_for_foreignkey(self, db_field, request, **kwargs):
+	#	if db_field.name == 'equipo1':
+	#		kwargs['queryset'] = Equipo.objects.filter(liga=1).order_by('nombre')
+	#	return super(EncuentroAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 admin.site.register(Estadio, EstadioAdmin)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Equipo
+from .models import Equipo, Encuentro
 from django.views import generic
 
 def index(request):
@@ -18,3 +18,10 @@ class liga123(generic.ListView):
 
 	def get_queryset(self):
 		return Equipo.objects.filter(liga=2).order_by('nombre')
+
+class resultadosBBVA(generic.ListView):
+	template_name = 'estadisticas/resultadosBBVA.html'
+	context_object_name = 'resultados'
+
+	def get_queryset(self):
+		return Encuentro.objects.filter(liga=1).order_by('jornada')

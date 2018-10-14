@@ -1,0 +1,51 @@
+{% block bar %}
+	{% include 'estadisticas/navbar.html' %}
+{% endblock %}
+
+<div class="resultadosEncuentros">
+
+	{% if resultados %}
+		{% for encuentro in resultados %}
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col" colspan="6">Jornada</th>
+			    	</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<tr>
+							<td>Equipo1</td>
+							<td>3</td>
+							<td rowspan="2">Hora</td>
+							<td>Equipo1</td>
+							<td>0</td>
+							<td rowspan="2">Hora</td>
+						</tr>
+						<tr>
+							<td>Equipo2</td>
+							<td>4</td>
+							<td>Equipo1</td>
+							<td>0</td>
+						</tr>
+					</tr>
+				</tbody>
+			</table>
+		{% endfor %}
+	{% else %}
+		<p>No hay equipos.</p>
+	{% endif %}
+
+</div>
+
+</body>
+
+{% block js %}
+<script type="text/javascript">
+	/*$(document).ready( function() {
+
+	});*/
+</script>
+
+{% endblock js %}
+</html>

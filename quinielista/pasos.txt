@@ -9,3 +9,37 @@ Dentro del proyecto "estadisticas" creamos urls.py.
 Luego dentro de urls.py(del que está con el manage.py) debemos incluir este urls.py creado para que se reconozca el routing.
 
 Ahora creamos dentro del proyecto estadisticas. un directorio templates donde meteremos cada una de las vistas. Otro directorio static donde meteremos los estilos, los css y los js.
+
+
+
+
+{% extends 'stories/base.html' %}
+{% block body %}
+<h1>This is rating page</h1>
+
+<section class='rating-widget'>
+  {% with count = 0 %}
+  {% while count < 5: %}
+      <div class='rating-stars text-center'>
+          <ul class='stars'>
+              <li class='star selected' title='Poor' data-value='1'>
+                  <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star selected' title='Fair' data-value='2'>
+                  <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star selected' title='Good' data-value='3'>
+                  <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star selected' title='Excellent' data-value='4'>
+                  <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star selected' title='WOW!!!' data-value='5'>
+                  <i class='fa fa-star fa-fw'></i>
+              </li>
+          </ul>
+      </div>
+        {% count += 1 %}
+      {% endwhile %}
+  {% endwith %}
+</section> 
