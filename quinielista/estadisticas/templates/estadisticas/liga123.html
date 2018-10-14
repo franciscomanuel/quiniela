@@ -1,0 +1,42 @@
+{% block bar %}
+	{% include 'estadisticas/navbar.html' %}
+{% endblock %}
+
+<div class="tablaEquipos">
+	{% if equipos %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+			      	<th scope="col">Id</th>
+			      	<th scope="col">Nombre</th>
+			      	<th scope="col">Estadio</th>
+			    </tr>
+			</thead>
+			<tbody>
+			{% for equipo in equipos %}
+				<tr>
+					<th scope="row">{{ forloop.counter }}</th>
+					<td>{{ equipo.id }}</th>
+					<td>{{ equipo.nombre }}</td>
+					<td>{{ equipo.estadio }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No hay equipos.</p>
+	{% endif %}
+</div>
+
+</body>
+
+{% block js %}
+<script type="text/javascript">
+	/*$(document).ready( function() {
+
+	});*/
+</script>
+
+{% endblock js %}
+</html>

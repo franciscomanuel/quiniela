@@ -1,0 +1,25 @@
+.navbar-brand {
+    color: #FF0000 !important;
+}
+
+.navbar-nav > li > a {
+    color: #FFFFFF !important;
+}
+
+.navbar-nav > li > a:hover {
+    color: #2E9AFE !important;
+}
+
+.navbar-nav > li > a:focus {
+    color: #58FA58 !important;
+}
+
+.tablaEquipos {
+    display: flex;
+    margin-left: 24%;
+    width: 50%;
+}
+
+.table {
+    text-align: center;
+}

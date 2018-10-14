@@ -1,0 +1,11 @@
+Creamos el proyecto --> django-admin startproject mysite
+Compilamos: python3 manage.py makemigrations
+Hacemos las migraciones para que funcione --> python3 manage.py migrate
+Ya podemos lanzar el servidor python3 manage.py runserver
+Ahora creamos nuestra aplicación estadisticas --> python3 manage.py startapp estadisticas
+
+Dentro del proyecto "estadisticas" creamos urls.py.
+
+Luego dentro de urls.py(del que está con el manage.py) debemos incluir este urls.py creado para que se reconozca el routing.
+
+Ahora creamos dentro del proyecto estadisticas. un directorio templates donde meteremos cada una de las vistas. Otro directorio static donde meteremos los estilos, los css y los js.
